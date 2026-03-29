@@ -89,19 +89,7 @@ nav {
     margin-bottom: 5rem;
 }
 
-.tag {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--text-secondary);
-    background: var(--bg-secondary);
-    border: 0.5px solid var(--border-medium);
-    border-radius: 100px;
-    padding: 4px 14px;
-    margin-bottom: 1.2rem;
-}
+
 
 .hero-text h1 {
     font-family: 'DM Serif Display', serif;
@@ -525,4 +513,65 @@ footer p { font-size: 12px; color: var(--text-tertiary); }
     color: var(--text-tertiary);
     text-align: right;
     min-width: 80px;
+}
+
+/* Sembunyikan Checkbox asli */
+.menu-toggle {
+    display: none;
+}
+
+/* Style default Hamburger (Sembunyikan di Desktop) */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: var(--text-primary);
+    transition: 0.3s;
+}
+
+/* MEDIA QUERY UNTUK MOBILE */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex; /* Munculkan burger di mobile */
+        z-index: 1001;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Sembunyikan menu di kanan luar layar */
+        width: 70%;
+        height: 100vh;
+        background: var(--bg-primary);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        transition: 0.4s;
+        box-shadow: -10px 0 20px rgba(0,0,0,0.05);
+        z-index: 1000;
+    }
+
+    /* Saat checkbox dicentang (burger diklik), menu muncul */
+    .menu-toggle:checked ~ .nav-links {
+        right: 0;
+    }
+
+    /* Efek Animasi Burger jadi 'X' saat diklik (Opsional) */
+    .menu-toggle:checked ~ .hamburger span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    .menu-toggle:checked ~ .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle:checked ~ .hamburger span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
 }
