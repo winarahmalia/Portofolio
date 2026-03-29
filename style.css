@@ -529,19 +529,24 @@ footer p { font-size: 12px; color: var(--text-tertiary); }
 }
 
 .hamburger span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    /* Paksa warna putih dengan !important */
-    background-color: #ffffff !important; 
-    background: #ffffff !important;
-    
-    /* SOLUSI: Tambahkan shadow agar terlihat di background putih/terang */
-    box-shadow: 0 0 2px rgba(0,0,0,0.5); 
-    
-    transition: 0.3s;
-    border-radius: 2px;
-}
+        display: block;
+        width: 25px;
+        height: 3px;
+        
+        /* SOLUSI PEMAKSA: Menggunakan warna putih murni */
+        border: 1px solid #ffffff !important;
+outline: 2px solid #ffffff !important;
+
+        /* TAMBAHKAN FILTER (Ini sangat ampuh untuk HP) */
+        filter: brightness(100%) !important;
+        
+        /* TAMBAHKAN SHADOW LEBIH TEBAL (Agar terlihat di layar putih) */
+        box-shadow: 0 0 4px rgba(0,0,0,0.8) !important;
+        
+        transition: 0.3s;
+        border-radius: 4px;
+        z-index: 1002;
+    }
 
 /* MEDIA QUERY UNTUK MOBILE */
 @media (max-width: 768px) {
@@ -573,20 +578,18 @@ footer p { font-size: 12px; color: var(--text-tertiary); }
 
     /* Efek Animasi Burger jadi 'X' saat diklik (Opsional) */
 .menu-toggle:checked ~ .hamburger span {
-    background-color: #ffffff !important;
-    background: #ffffff !important;
+        background-color: #ffffff !important;
+        background: #ffffff !important;
+        filter: brightness(100%) !important;
+     background: #ffffff !important;
 }
 
     .menu-toggle:checked ~ .hamburger span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-/* Garis tengah hilang */
-.menu-toggle:checked ~ .hamburger span:nth-child(2) {
-    opacity: 0;
-}
-
-/* Garis bawah jadi miring ke atas */
-.menu-toggle:checked ~ .hamburger span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
+        transform: translateY(8px) rotate(45deg);
+    }
+    .menu-toggle:checked ~ .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle:checked ~ .hamburger span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
