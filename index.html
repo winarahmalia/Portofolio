@@ -281,5 +281,21 @@
         </footer>
 
     </div>
+
+<script>
+        // Mengambil elemen checkbox menu-toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        // Mengambil semua link di dalam nav-links
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        // Menambahkan event klik untuk setiap link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Setel checkbox menjadi false (tidak tercentang) agar menu menutup
+                menuToggle.checked = false;
+            });
+        });
+    </script>
+
 </body>
 </html>
