@@ -592,4 +592,6 @@ outline: 2px solid #ffffff !important;
     }
     .menu-toggle:checked ~ .hamburger span:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
+    
     }
+}
