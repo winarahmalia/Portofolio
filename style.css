@@ -213,18 +213,84 @@ footer a { color:var(--teal); text-decoration:none; }
 .stagger-4 { transition-delay:0.4s; }
 
 /* --- RESPONSIVE / MOBILE --- */
-@media (max-width:768px) {
-    body { cursor:auto; }
-    #cursor { display:none; }
-    nav { padding:16px 20px; }
-    .nav-links,.nav-badge { display:none; }
-    .hero-inner { grid-template-columns:1fr; gap:60px; }
-    .hero-visual { order:-1; }
-    .avatar-frame { width:260px; height:290px; }
-    .about-grid { grid-template-columns:1fr; }
-    .skills-grid { grid-template-columns:1fr; }
-    .projects-grid { grid-template-columns:1fr; }
-    .contact-wrap { grid-template-columns:1fr; gap:40px; }
-    .stats-row { grid-template-columns:1fr; }
-    footer { flex-direction:column; gap:12px; text-align:center; }
+/* --- RESPONSIVE DESIGN (MOBILE OPTIMIZATION) --- */
+@media (max-width: 992px) {
+    .hero-inner {
+        grid-template-columns: 1fr; /* Hero menjadi satu kolom */
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .hero-desc {
+        margin: 0 auto 40px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr; /* Bagian About menjadi satu kolom */
+    }
+}
+
+@media (max-width: 768px) {
+    body { 
+        cursor: auto; /* Matikan custom cursor di mobile agar tidak mengganggu */
+    }
+    
+    #cursor { 
+        display: none; 
+    }
+
+    nav { 
+        padding: 15px 20px; 
+    }
+
+    .nav-links { 
+        display: none; /* Sembunyikan menu desktop, bisa diganti hamburger menu nanti */
+    }
+
+    .hero h1 {
+        font-size: clamp(2.5rem, 8vw, 3.5rem); /* Perkecil ukuran font judul di HP */
+    }
+
+    .avatar-frame {
+        width: 280px; /* Sesuaikan ukuran foto agar pas di layar HP */
+        height: 320px;
+        margin: 0 auto;
+    }
+
+    .stats-row {
+        grid-template-columns: 1fr; /* Statistik jadi tumpuk vertikal */
+        gap: 15px;
+    }
+
+    .cert-card {
+        flex-direction: column; /* Sertifikat: teks di atas, panah/link di bawah */
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .project-card {
+        padding: 20px; /* Kurangi padding agar konten tidak terlalu sempit */
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    footer {
+        flex-direction: column; /* Footer jadi tumpuk vertikal */
+        gap: 20px;
+        text-align: center;
+    }
+}
+
+/* Optimasi untuk layar sangat kecil (Small Phones) */
+@media (max-width: 480px) {
+    .btn {
+        width: 100%; /* Tombol jadi full width agar mudah di-tap jari */
+        justify-content: center;
+    }
+    
+    .hero-tag {
+        font-size: 0.7rem;
+    }
 }
